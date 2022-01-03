@@ -60,6 +60,7 @@
 			</li>
 		</ul>
 		<h3>Ecosystem</h3>
+		<pizzaLogo />
 		<ul>
 			<li>
 				<a
@@ -103,10 +104,15 @@
 </template>
 
 <script>
+import pizzaLogo from '../assets/icons/pizza.svg'
+
 export default {
 	name: 'HelloWorld',
 	props: {
 		msg: String
+	},
+	components: {
+		pizzaLogo
 	}
 }
 </script>

@@ -36,3 +36,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 -   Project setup.
 -   Sass setup.
+
+### January 3, 2022:
+
+-   Added svg files of food icons.
+-   Installed svg _**loader**_ and set up everything for it to work.
