@@ -43,3 +43,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 -   Installed svg **_loader_** and set up everything for it to work.
 -   Made a global scss file to reach all the project.
 -   Added fonts and css setup.
+-   Structured the side navbar.
+-   Added style to side navbar.
