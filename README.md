@@ -40,4 +40,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 3, 2022:
 
 -   Added svg files of food icons.
--   Installed svg _**loader**_ and set up everything for it to work.
+-   Installed svg **_loader_** and set up everything for it to work.
+-   Made a global scss file to reach all the project.
+-   Added fonts and css setup.
