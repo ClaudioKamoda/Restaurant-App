@@ -45,3 +45,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 -   Added fonts and css setup.
 -   Structured the side navbar.
 -   Added style to side navbar.
+
+### January 4, 2022:
+
+-   Adapted the navbar to the mobile view.

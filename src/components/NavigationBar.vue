@@ -35,7 +35,7 @@ export default {
 			navigationList: [
 				{ label: 'Pizza', id: 'pizzaIcon' },
 				{ label: 'Bebidas', id: 'drinksIcon' },
-				{ label: 'Sobremesas', id: 'desertIcon' },
+				{ label: 'Doces', id: 'desertIcon' },
 				{ label: 'Combos', id: 'comboIcon' },
 				{ label: 'Burguer', id: 'burguerIcon' }
 			],
@@ -58,9 +58,13 @@ export default {
 	width: 130px;
 	height: 100vh;
 	display: flex;
-	align-items: center;
+	justify-content: center;
 
 	ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		list-style: none;
 		padding: 0;
 
@@ -95,6 +99,38 @@ export default {
 					}
 				}
 			}
+		}
+	}
+	@media screen and (max-width: 720px) {
+		width: 100%;
+		height: fit-content;
+
+		ul {
+			padding-left: 10.5px;
+			margin: 10px 0;
+			width: 100%;
+			flex-direction: row;
+			overflow: scroll;
+
+			li {
+				border-radius: 8px;
+				border: solid $light-grey 1.5px;
+				min-width: 78px;
+				max-width: 78px;
+				height: 98px;
+				margin: 0 5.5px;
+				p {
+					font-size: 0.75rem;
+				}
+				&.active {
+					border: none;
+				}
+			}
+		}
+	}
+	@media screen and (max-width: 450px) {
+		ul {
+			justify-content: flex-start;
 		}
 	}
 }
