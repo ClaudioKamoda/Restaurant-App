@@ -49,3 +49,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 4, 2022:
 
 -   Adapted the navbar to the mobile view.
+-   Added **_vue-router_** to the project.
