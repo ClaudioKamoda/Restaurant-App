@@ -1,6 +1,7 @@
 # Restaurant
 
-Description here.
+Resturant app developed using Vue.js, Sass, axios and json server.
+Final project from the front-end dev course I took made by @IsadoraStangarlin.
 
 ## Project setup
 
