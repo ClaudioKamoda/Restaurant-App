@@ -6,24 +6,8 @@ Description here.
 
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
+json-server --watch db.json
 npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
 ```
 
 ### Customize configuration
@@ -32,7 +16,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Project Log:
 
-#### January 2, 2022:
+### January 2, 2022:
 
 -   Project setup.
 -   Sass setup.
@@ -50,3 +34,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 -   Adapted the navbar to the mobile view.
 -   Added **_vue-router_** to the project.
+
+### January 5, 2022:
+
+-   Installed **_json server_** to act as a mockend to the application.
+-   Installed **_axios_** to fetch the fake api.
