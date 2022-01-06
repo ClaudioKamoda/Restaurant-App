@@ -44,3 +44,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 6, 2022:
 
 -   Implemented the base for the products view.
+-   Applied style to the products view.

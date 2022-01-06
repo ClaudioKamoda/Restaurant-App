@@ -22,10 +22,5 @@ export default {
 <style lang="scss" scoped>
 .home {
 	display: flex;
-	background-color: $bg-color;
-
-	@media screen and (max-width: 720px) {
-		background-color: white;
-	}
 }
 </style>

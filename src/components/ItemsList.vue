@@ -26,4 +26,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.items-list {
+	margin: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: $bg-color;
+
+	@media screen and (max-width: 720px) {
+		background-color: white;
+	}
+}
+</style>
