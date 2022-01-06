@@ -59,6 +59,7 @@ export default {
 	height: 100vh;
 	display: flex;
 	justify-content: center;
+	background-color: white;
 
 	ul {
 		display: flex;

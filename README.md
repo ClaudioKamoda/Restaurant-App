@@ -40,3 +40,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 -   Installed **_json server_** to act as a mockend to the application.
 -   Installed **_axios_** to fetch the fake api.
+
+### January 6, 2022:
+
+-   Implemented the base for the products view.

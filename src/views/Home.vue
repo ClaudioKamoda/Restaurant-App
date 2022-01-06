@@ -1,23 +1,31 @@
 <template>
 	<div class="home">
 		<NavigationBar />
+		<ItemsList />
 	</div>
 </template>
 
 <script>
 // @ is an alias to /src
 import NavigationBar from '@/components/NavigationBar.vue'
-import axios from 'axios'
+import ItemsList from '@/components/ItemsList.vue'
 
 export default {
 	name: 'Home',
 	components: {
-		NavigationBar
-	},
-	created() {
-		axios.get('http://localhost:3000/burguers').then(response => {
-			console.log(response)
-		})
+		NavigationBar,
+		ItemsList
 	}
 }
 </script>
+
+<style lang="scss" scoped>
+.home {
+	display: flex;
+	background-color: $bg-color;
+
+	@media screen and (max-width: 720px) {
+		background-color: white;
+	}
+}
+</style>
