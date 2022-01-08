@@ -28,13 +28,16 @@ export default {
 
 <style lang="scss" scoped>
 .items-list {
-	margin: 50px;
+	padding: 50px;
 	display: flex;
 	flex-wrap: wrap;
 	background-color: $bg-color;
 
 	@media screen and (max-width: 720px) {
 		background-color: white;
+		padding: 23px;
+		flex-direction: column;
+		align-items: center;
 	}
 }
 </style>

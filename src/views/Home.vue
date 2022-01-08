@@ -22,5 +22,9 @@ export default {
 <style lang="scss" scoped>
 .home {
 	display: flex;
+
+	@media screen and(max-width: 720px) {
+		flex-direction: column;
+	}
 }
 </style>

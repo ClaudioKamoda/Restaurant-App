@@ -45,3 +45,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 -   Implemented the base for the products view.
 -   Applied style to the products view.
+
+### January 7, 2022:
+
+-   Adapted the product view to mobile.

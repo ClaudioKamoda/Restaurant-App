@@ -4,3 +4,16 @@ $dark-grey: #848484;
 $light-grey: #dadada;
 $light-yellow: #fdc8444d;
 $bg-color: #fafafa;
+
+@mixin FontBase($weight, $size, $color) {
+	font-weight: $weight;
+	font-size: $size;
+	color: $color;
+}
+
+@mixin Flexbox($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}

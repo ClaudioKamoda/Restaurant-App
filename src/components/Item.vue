@@ -1,10 +1,17 @@
 <template>
 	<div class="item">
-		<div class="item--tag" v-if="itemData.offer">Oferta</div>
-		<img src="../assets/images/burguer.png" alt="imagem de um hamburguer" />
-		<h2 class="item--name">{{ itemData.name }}</h2>
-		<p class="item--description">{{ itemData.description }}</p>
-		<p class="item--price">{{ itemData.price | priceCalc }}</p>
+		<div class="img-container">
+			<img
+				src="../assets/images/burguer.png"
+				alt="imagem de um hamburguer"
+			/>
+			<div class="item--tag" v-if="itemData.offer">Oferta</div>
+		</div>
+		<div class="text-container">
+			<h2 class="item--name">{{ itemData.name }}</h2>
+			<p class="item--description">{{ itemData.description }}</p>
+			<p class="item--price">{{ itemData.price | priceCalc }}</p>
+		</div>
 	</div>
 </template>
 
@@ -25,12 +32,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@mixin FontBase($weight, $size, $color) {
-	font-weight: $weight;
-	font-size: $size;
-	color: $color;
-}
-
 .item {
 	width: 216px;
 	height: 290px;
@@ -54,6 +55,10 @@ export default {
 		padding: 3px 8px;
 	}
 
+	.img-container {
+		margin: 0 auto;
+	}
+
 	img {
 		width: 127px;
 		height: 87px;
@@ -70,6 +75,43 @@ export default {
 
 	&--price {
 		@include FontBase(600, 1.125rem, $yellow);
+	}
+
+	@media screen and (max-width: 720px) {
+		border: solid $light-grey 1.5px;
+		width: 330px;
+		height: fit-content;
+		padding: 14px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		position: static;
+
+		&--tag {
+			position: static;
+			width: fit-content;
+			padding: 1px 10px;
+			font-size: 1rem;
+			border-radius: 12px;
+		}
+
+		.img-container {
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+		}
+
+		img {
+			height: 59px;
+			width: 86px;
+		}
+
+		&--price {
+			text-align: right;
+		}
 	}
 }
 </style>
