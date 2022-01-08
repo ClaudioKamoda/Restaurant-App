@@ -49,3 +49,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 7, 2022:
 
 -   Adapted the product view to mobile.
+
+### January 8, 2022:
+
+-   Installed **_vuex_** to state manage.

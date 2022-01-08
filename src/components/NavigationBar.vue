@@ -45,6 +45,7 @@ export default {
 	methods: {
 		changeNavigation(id) {
 			this.currentNavigation = id
+			this.$store.dispatch('changeNavigation', id)
 		},
 		isActive(id) {
 			return id === this.currentNavigation
