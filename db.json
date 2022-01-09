@@ -31,11 +31,11 @@
   ],
   "pizzas": [
     {
-        "id": 1,
-        "name": "Calabresa",
-        "description": "Molho de tomate, calabresa e queijo",
-        "price": 25.0,
-        "offer": false
+      "id": 1,
+      "name": "Calabresa",
+      "description": "Molho de tomate, calabresa e queijo",
+      "price": 25.0,
+      "offer": false
     }
   ]
 }

@@ -56,4 +56,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### January 9, 2022:
 
--
+- Now the items showed change after changing navigation tab.
