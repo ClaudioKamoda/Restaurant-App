@@ -53,3 +53,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 8, 2022:
 
 -   Installed **_vuex_** to state manage.
+
+### January 9, 2022:
+
+-

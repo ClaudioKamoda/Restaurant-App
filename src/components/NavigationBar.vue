@@ -7,7 +7,7 @@
 				@click="changeNavigation(nav.id)"
 				:class="{ active: isActive(nav.id) }"
 			>
-				<component :is="nav.id" />
+				<component :is="nav.component" />
 				<p>{{ nav.label }}</p>
 			</li>
 		</ul>
@@ -33,11 +33,11 @@ export default {
 	data() {
 		return {
 			navigationList: [
-				{ label: 'Pizza', id: 'pizzaIcon' },
-				{ label: 'Bebidas', id: 'drinksIcon' },
-				{ label: 'Doces', id: 'desertIcon' },
-				{ label: 'Combos', id: 'comboIcon' },
-				{ label: 'Burguer', id: 'burguerIcon' }
+				{ label: 'Pizza', id: 'pizzas', component:'pizzaIcon' },
+				{ label: 'Bebidas', id: 'drinks', component:'drinksIcon' },
+				{ label: 'Doces', id: 'desserts', component:'desertIcon' },
+				{ label: 'Combos', id: 'combos', component:'comboIcon' },
+				{ label: 'Burguer', id: 'burguers', component:'burguerIcon' }
 			],
 			currentNavigation: 'pizzaIcon'
 		}
