@@ -23,10 +23,8 @@ export default {
 		}
 	},
 	computed: {
-		selectedNav: {
-			get(){
-				return this.$store.state.selectedNav
-			}	
+		selectedNav(){
+			return this.$store.state.selectedNav
 		}
 	},
 	methods:{
@@ -38,7 +36,7 @@ export default {
 					this.itemsList = response.data
 					this.isLoading = false
 				})
-			}, 50000);
+			}, 500);
 		}
 	},
 	watch:{

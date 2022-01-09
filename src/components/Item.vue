@@ -2,8 +2,8 @@
 	<div class="item">
 		<div class="img-container">
 			<img
-				src="../assets/images/burguer.png"
-				alt="imagem de um hamburguer"
+				:src="imagePath"
+				alt="imagem do produto"
 			/>
 			<div class="item--tag" v-if="itemData.offer">Oferta</div>
 		</div>
@@ -26,6 +26,14 @@ export default {
 	},
 	props: {
 		itemData: {}
+	},
+	computed:{
+		selectedNav(){
+			return this.$store.state.selectedNav
+		},
+		imagePath(){
+			return require(`../assets/images/${this.selectedNav}/${this.itemData.id}.png`)
+		}
 	}
 }
 </script>
@@ -106,7 +114,8 @@ export default {
 
 		img {
 			height: 59px;
-			width: 86px;
+			width: 100%;
+			margin:auto;
 		}
 
 		&--price {

@@ -1,40 +1,109 @@
 {
   "burguers": [
     {
-      "id": 1,
-      "name": "Duplo Burguer",
-      "description": "Pão, maionese, 2 carnes de 180g, alface, tomate, bacon e cebola roxa",
-      "price": 25.0,
-      "offer": true
-    },
-    {
-      "id": 2,
+      "id": 101,
       "name": "Triplo Burguer",
       "description": "Pão, maionese, 3 carnes de 180g, alface, tomate, bacon e cebola roxa",
       "price": 32.0,
       "offer": true
     },
     {
-      "id": 3,
+      "id": 102,
       "name": "Chicken Burguer",
       "description": "Pão, maionese, carne de frango, alface, tomate e queijo",
       "price": 16.5,
       "offer": false
     },
     {
-      "id": 4,
-      "name": "Kids Burguer",
-      "description": "Pão, maionese, 1 hamburguer de 180g e 1 fatia de queijo cheddar",
-      "price": 12.0,
+      "id": 103,
+      "name": "Duplo Burguer",
+      "description": "Pão, maionese, 2 carnes de 180g, alface, tomate, bacon e cebola roxa",
+      "price": 25.0,
+      "offer": true
+    },
+    {
+      "id": 104,
+      "name": "Picanha Burguer",
+      "description": "Pão, maionese, 1 hamburguer de picanha, alface e tomate",
+      "price": 40.3,
+      "offer": false
+    }
+  ],
+  "combos": [
+    {
+      "id": 201,
+      "name": "Combo 1",
+      "description": "1 hamburguer duplo, 1 guaraná lata e 1 milkshake chocolate",
+      "price": 50.0,
+      "offer": false
+    },
+    {
+      "id": 202,
+      "name": "Combo 2",
+      "description": "2 pizzas",
+      "price": 45.0,
+      "offer": false
+    }
+  ],
+  "desserts": [
+    {
+      "id": 301,
+      "name": "Casquinha mista",
+      "description": "Casquinha mista de creme e chocolate",
+      "price": 4.5,
+      "offer": false
+    },
+    {
+      "id": 302,
+      "name": "Sorvete de morango",
+      "description": "Sorvete de morango na casquinha",
+      "price": 6.0,
+      "offer": false
+    },
+    {
+      "id": 303,
+      "name": "Milshake",
+      "description": "Milskahe de chocolate",
+      "price": 10.0,
+      "offer": false
+    }
+  ],
+  "drinks": [
+    {
+      "id": 401,
+      "name": "Coca-cola lata",
+      "description": "Lata 350ml",
+      "price": 4.5,
+      "offer": false
+    },
+    {
+      "id": 402,
+      "name": "Guaraná Lata",
+      "description": "Lata 350ml",
+      "price": 4.5,
       "offer": false
     }
   ],
   "pizzas": [
     {
-      "id": 1,
+      "id": 501,
       "name": "Calabresa",
       "description": "Molho de tomate, calabresa e queijo",
       "price": 25.0,
+      "offer": false
+    },
+    {
+      "id": 502,
+      "name": "4 Queijos",
+      "description": "Molho de tomate e 4 queijos",
+      "price": 27.0,
+      "offer": false
+    },
+    {
+      "id": 503,
+      "name": "Strogonoff",
+      "description": "Molho de tomate e strogonoff de carne",
+      "price": 29.0,
       "offer": false
     }
   ]

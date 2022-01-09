@@ -58,3 +58,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - Now the items showed change after changing navigation tab.
 - Added loading animation and loading simulation to the app.
+- Added new data to **_db.json_**.
+- Added corresponding images for each product.
