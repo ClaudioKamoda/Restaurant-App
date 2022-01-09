@@ -20,9 +20,8 @@ export default {
 	name: 'Item',
 	filters: {
 		priceCalc(value) {
-			return `R$ ${value.toLocaleString('pt-br', {
-				minimumFractionDigits: 2
-			})}`
+			return `R$ ${ value.toLocaleString('pt-br', {
+				minimumFractionDigits: 2}) }`
 		}
 	},
 	props: {
@@ -79,7 +78,8 @@ export default {
 
 	@media screen and (max-width: 720px) {
 		border: solid $light-grey 1.5px;
-		width: 330px;
+		width: 100vw;
+		margin: 0 20px;
 		height: fit-content;
 		padding: 14px;
 		display: flex;

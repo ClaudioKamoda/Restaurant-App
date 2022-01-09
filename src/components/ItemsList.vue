@@ -1,21 +1,25 @@
 <template>
 	<div class="items-list">
+		<Loading v-if="isLoading"/>
 		<Item v-for="item in itemsList" :key="item.id" :itemData="item" />
 	</div>
 </template>
 
 <script>
 import Item from './Item.vue'
+import Loading from './Loading.vue'
 import axios from 'axios'
 
 export default {
 	name: 'ItemsList',
 	components: {
-		Item
+		Item,
+		Loading
 	},
 	data() {
 		return {
-			itemsList: []
+			itemsList: [],
+			isLoading: false
 		}
 	},
 	computed: {
@@ -27,9 +31,14 @@ export default {
 	},
 	methods:{
 		getItemList(){
-			axios.get(`http://localhost:3000/${this.selectedNav}`).then(response => {
-				this.itemsList = response.data
-			})
+			this.itemsList = []
+			this.isLoading = true
+			setTimeout(() => {
+				axios.get(`http://localhost:3000/${this.selectedNav}`).then(response => {
+					this.itemsList = response.data
+					this.isLoading = false
+				})
+			}, 50000);
 		}
 	},
 	watch:{
@@ -43,6 +52,7 @@ export default {
 <style lang="scss" scoped>
 .items-list {
 	padding: 50px;
+	width: 100vw;
 	display: flex;
 	flex-wrap: wrap;
 	background-color: $bg-color;
