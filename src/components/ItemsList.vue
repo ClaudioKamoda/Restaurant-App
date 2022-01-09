@@ -18,10 +18,24 @@ export default {
 			itemsList: []
 		}
 	},
-	created() {
-		axios.get('http://localhost:3000/burguers').then(response => {
-			this.itemsList = response.data
-		})
+	computed: {
+		selectedNav: {
+			get(){
+				return this.$store.state.selectedNav
+			}	
+		}
+	},
+	methods:{
+		getItemList(){
+			axios.get(`http://localhost:3000/${this.selectedNav}`).then(response => {
+				this.itemsList = response.data
+			})
+		}
+	},
+	watch:{
+		selectedNav(){
+			this.getItemList()
+		}
 	}
 }
 </script>

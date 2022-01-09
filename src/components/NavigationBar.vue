@@ -39,8 +39,11 @@ export default {
 				{ label: 'Combos', id: 'combos', component:'comboIcon' },
 				{ label: 'Burguer', id: 'burguers', component:'burguerIcon' }
 			],
-			currentNavigation: 'pizzaIcon'
+			currentNavigation: ''
 		}
+	},
+	mounted(){
+		this.changeNavigation('pizzas')
 	},
 	methods: {
 		changeNavigation(id) {
