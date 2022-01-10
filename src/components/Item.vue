@@ -90,7 +90,6 @@ export default {
 		margin: 0;
 		display: flex;
 		flex-direction: row;
-		flex-grow: 1;
 		justify-content: center;
 		position: static;
 
