@@ -1,10 +1,7 @@
 <template>
 	<div class="item">
 		<div class="img-container">
-			<img
-				:src="imagePath"
-				alt="imagem do produto"
-			/>
+			<img :src="imagePath" alt="imagem do produto" />
 			<div class="item--tag" v-if="itemData.offer">Oferta</div>
 		</div>
 		<div class="text-container">
@@ -20,18 +17,19 @@ export default {
 	name: 'Item',
 	filters: {
 		priceCalc(value) {
-			return `R$ ${ value.toLocaleString('pt-br', {
-				minimumFractionDigits: 2}) }`
+			return `R$ ${value.toLocaleString('pt-br', {
+				minimumFractionDigits: 2
+			})}`
 		}
 	},
 	props: {
 		itemData: {}
 	},
-	computed:{
-		selectedNav(){
+	computed: {
+		selectedNav() {
 			return this.$store.state.selectedNav
 		},
-		imagePath(){
+		imagePath() {
 			return require(`../assets/images/${this.selectedNav}/${this.itemData.id}.png`)
 		}
 	}
@@ -86,12 +84,13 @@ export default {
 
 	@media screen and (max-width: 720px) {
 		border: solid $light-grey 1.5px;
-		width: 100vw;
-		margin: 0 20px;
 		height: fit-content;
-		padding: 14px;
+		min-width: 330px;
+		padding: 5px 14px;
+		margin: 0;
 		display: flex;
 		flex-direction: row;
+		flex-grow: 1;
 		justify-content: center;
 		position: static;
 
@@ -112,10 +111,14 @@ export default {
 			gap: 10px;
 		}
 
+		.text-container {
+			flex-grow: 1;
+		}
+
 		img {
-			height: 59px;
-			width: 100%;
-			margin:auto;
+			height: auto;
+			width: 86px;
+			margin: auto;
 		}
 
 		&--price {

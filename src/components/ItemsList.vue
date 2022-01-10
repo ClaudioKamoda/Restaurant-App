@@ -1,6 +1,6 @@
 <template>
 	<div class="items-list">
-		<Loading v-if="isLoading"/>
+		<Loading v-if="isLoading" />
 		<Item v-for="item in itemsList" :key="item.id" :itemData="item" />
 	</div>
 </template>
@@ -23,24 +23,26 @@ export default {
 		}
 	},
 	computed: {
-		selectedNav(){
+		selectedNav() {
 			return this.$store.state.selectedNav
 		}
 	},
-	methods:{
-		getItemList(){
+	methods: {
+		getItemList() {
 			this.itemsList = []
 			this.isLoading = true
 			setTimeout(() => {
-				axios.get(`http://localhost:3000/${this.selectedNav}`).then(response => {
-					this.itemsList = response.data
-					this.isLoading = false
-				})
-			}, 500);
+				axios
+					.get(`http://localhost:3000/${this.selectedNav}`)
+					.then(response => {
+						this.itemsList = response.data
+						this.isLoading = false
+					})
+			}, 500)
 		}
 	},
-	watch:{
-		selectedNav(){
+	watch: {
+		selectedNav() {
 			this.getItemList()
 		}
 	}
@@ -49,7 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 .items-list {
-	padding: 50px;
+	padding: 20px;
 	width: 100vw;
 	display: flex;
 	flex-wrap: wrap;
@@ -60,6 +62,7 @@ export default {
 		padding: 23px;
 		flex-direction: column;
 		align-items: center;
+		gap: 10px;
 	}
 }
 </style>
