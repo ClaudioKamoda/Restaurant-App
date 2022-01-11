@@ -25,11 +25,8 @@ export default {
 		item: {}
 	},
 	computed: {
-		selectedNav() {
-			return this.$store.state.selectedNav
-		},
 		imagePath() {
-			return require(`../assets/images/${this.selectedNav}/${this.item.id}.png`)
+			return require(`../assets/images/${this.item.id}.png`)
 		}
 	}
 }
