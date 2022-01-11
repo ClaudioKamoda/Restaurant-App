@@ -65,3 +65,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 -   Fixed some mobile issues.
 -   Coded cart and styled it.
+
+### January 11, 2022:
+
+- Quick fix on image folder.
+- Fixed double ids on cart.
+- Toggle quantity implemented.
+- Removed negative quantites.
+- Added cart button for mobile view.
