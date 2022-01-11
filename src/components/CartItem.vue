@@ -1,6 +1,10 @@
 <template>
 	<div class="item">
-		{{item.quantity}}
+		<div class="item--quantity">
+			<span class="button" @click="decreaseQuantity(item.id)">-</span>
+			<span class="number">{{item.quantity}}</span>
+			<span class="button" @click="increaseQuantity(item.id)">+</span>
+		</div>	
 		<div class="img-container">
 			<img :src="imagePath" alt="imagem do produto" />
 		</div>
@@ -13,6 +17,8 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
+
 export default {
 	name: 'CartItem',
 	filters: {
@@ -29,6 +35,12 @@ export default {
 		imagePath() {
 			return require(`../assets/images/${this.item.id}.png`)
 		}
+	},
+	methods:{
+		...mapActions([
+			'increaseQuantity',
+			'decreaseQuantity'
+		])
 	}
 }
 </script>
@@ -39,6 +51,21 @@ export default {
 	gap: 15px;
 	padding: 20px 0;
 	border-bottom: 1px solid $light-grey;
+
+	&--quantity{
+		@include Flexbox(row, center, center);
+
+		.number{
+			@include FontBase(500, 1.125rem, $yellow);
+			width: 28px;
+			text-align: center;
+		}
+
+		.button{
+			@include FontBase(600, 1.125rem, black);
+			cursor: pointer;
+		}
+	}
 
 	.img-container {
 		background-color: $light-yellow;
