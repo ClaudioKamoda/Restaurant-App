@@ -56,7 +56,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### January 9, 2022:
 
-- Now the items showed change after changing navigation tab.
-- Added loading animation and loading simulation to the app.
-- Added new data to **_db.json_**.
-- Added corresponding images for each product.
+-   Now the items showed change after changing navigation tab.
+-   Added loading animation and loading simulation to the app.
+-   Added new data to **_db.json_**.
+-   Added corresponding images for each product.
+
+### January 10, 2022:
+
+-   Fixed some mobile issues.
+-   Coded cart and styled it.
