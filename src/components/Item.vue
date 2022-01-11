@@ -1,5 +1,5 @@
 <template>
-	<div class="item">
+	<div class="item" @click="addToCart">
 		<div class="img-container">
 			<img :src="imagePath" alt="imagem do produto" />
 			<div class="item--tag" v-if="itemData.offer">Oferta</div>
@@ -31,6 +31,11 @@ export default {
 		},
 		imagePath() {
 			return require(`../assets/images/${this.selectedNav}/${this.itemData.id}.png`)
+		}
+	},
+	methods: {
+		addToCart() {
+			this.$store.dispatch('addToCart', this.itemData)
 		}
 	}
 }

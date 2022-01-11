@@ -2,6 +2,7 @@
 	<div class="home">
 		<NavigationBar />
 		<ItemsList />
+		<Cart />
 	</div>
 </template>
 
@@ -9,12 +10,14 @@
 // @ is an alias to /src
 import NavigationBar from '@/components/NavigationBar.vue'
 import ItemsList from '@/components/ItemsList.vue'
+import Cart from '@/components/Cart.vue'
 
 export default {
 	name: 'Home',
 	components: {
 		NavigationBar,
-		ItemsList
+		ItemsList,
+		Cart
 	}
 }
 </script>
