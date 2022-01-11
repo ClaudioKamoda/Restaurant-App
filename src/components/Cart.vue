@@ -13,9 +13,6 @@ export default {
 	components: {
 		CartItem
 	},
-	props: {
-		item: {}
-	},
 	computed: {
 		cartList() {
 			return this.$store.state.cartList
