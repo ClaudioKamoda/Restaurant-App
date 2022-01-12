@@ -77,3 +77,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 12, 2022:
 
 -   Added routes to cart when in mobile.
+-   Fixed some responsivity issues.

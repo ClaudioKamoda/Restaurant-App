@@ -106,6 +106,8 @@ export default {
 
 	@media screen and (max-width: 720px) {
 		flex-wrap: wrap;
+		justify-content: flex-start;
+		padding: 10px;
 
 		.img-container {
 			order: 1;
@@ -115,6 +117,7 @@ export default {
 		}
 		&--quantity {
 			order: 3;
+			width: 81px;
 		}
 		&--price {
 			order: 4;
