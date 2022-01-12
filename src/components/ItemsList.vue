@@ -22,6 +22,9 @@ export default {
 			isLoading: false
 		}
 	},
+	created() {
+		this.getItemList()
+	},
 	computed: {
 		selectedNav() {
 			return this.$store.state.selectedNav

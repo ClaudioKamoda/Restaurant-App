@@ -44,6 +44,7 @@ export default {
 	}
 
 	@media screen and (max-width: 720px) {
+		min-width: unset;
 		width: 100vw;
 	}
 }

@@ -1,10 +1,16 @@
 <template>
 	<div class="item">
 		<div class="item--quantity">
-			<button class="button" @click="decreaseQuantity(item.id)" :disabled="item.quantity == 0">-</button>
-			<span class="number">{{item.quantity}}</span>
+			<button
+				class="button"
+				@click="decreaseQuantity(item.id)"
+				:disabled="item.quantity == 0"
+			>
+				-
+			</button>
+			<span class="number">{{ item.quantity }}</span>
 			<button class="button" @click="increaseQuantity(item.id)">+</button>
-		</div>	
+		</div>
 		<div class="img-container">
 			<img :src="imagePath" alt="imagem do produto" />
 		</div>
@@ -17,7 +23,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
 	name: 'CartItem',
@@ -36,11 +42,8 @@ export default {
 			return require(`../assets/images/${this.item.id}.png`)
 		}
 	},
-	methods:{
-		...mapActions([
-			'increaseQuantity',
-			'decreaseQuantity'
-		])
+	methods: {
+		...mapActions(['increaseQuantity', 'decreaseQuantity'])
 	}
 }
 </script>
@@ -52,22 +55,22 @@ export default {
 	padding: 20px 0;
 	border-bottom: 1px solid $light-grey;
 
-	&--quantity{
+	&--quantity {
 		@include Flexbox(row, center, center);
 
-		.number{
+		.number {
 			@include FontBase(500, 1.125rem, $yellow);
 			width: 28px;
 			text-align: center;
 		}
 
-		.button{
+		.button {
 			@include FontBase(600, 1.125rem, black);
 			cursor: pointer;
 			background: none;
 			border: 0;
 
-			&:focus{
+			&:focus {
 				outline: 0;
 			}
 		}
@@ -99,6 +102,23 @@ export default {
 
 	&--price {
 		@include FontBase(600, 1.125rem, $yellow);
+	}
+
+	@media screen and (max-width: 720px) {
+		flex-wrap: wrap;
+
+		.img-container {
+			order: 1;
+		}
+		&--content {
+			order: 2;
+		}
+		&--quantity {
+			order: 3;
+		}
+		&--price {
+			order: 4;
+		}
 	}
 }
 </style>
