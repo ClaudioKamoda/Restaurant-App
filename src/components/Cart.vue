@@ -5,19 +5,32 @@
 		</router-link>
 		<h2 class="cart--title">Seu pedido</h2>
 		<CartItem v-for="item in cartList" :key="item.id" :item="item" />
+		<div class="cart--total">
+			<span>Total: </span>
+			<span class="cart--totalPrice">{{ getCartTotal | priceCalc }}</span>
+		</div>
 	</div>
 </template>
 
 <script>
 import CartItem from './CartItem.vue'
 import Mixin from '@/mixin.js'
+import { mapGetters } from 'vuex'
 
 export default {
 	name: 'Cart',
+	filters: {
+		priceCalc(value) {
+			return `R$ ${value.toLocaleString('pt-br', {
+				minimumFractionDigits: 2
+			})}`
+		}
+	},
 	components: {
 		CartItem
 	},
 	computed: {
+		...mapGetters(['getCartTotal']),
 		cartList() {
 			return this.$store.state.cartList
 		}
@@ -41,6 +54,17 @@ export default {
 	&--title,
 	&--goBack {
 		@include FontBase(600, 1.5rem, black);
+	}
+
+	&--total {
+		padding-top: 10px;
+		text-align: right;
+		@include FontBase(600, 1.125rem, black);
+	}
+
+	&--totalPrice {
+		padding-left: 10px;
+		color: $yellow;
 	}
 
 	@media screen and (max-width: 720px) {

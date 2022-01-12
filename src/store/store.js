@@ -13,12 +13,12 @@ export const store = new Vuex.Store({
 			state.selectedNav = id
 		},
 		addToCart(state, el) {
-			state.cartList.push({...el, quantity: 1})
+			state.cartList.push({ ...el, quantity: 1 })
 		},
-		increaseQuantity(state, index){
+		increaseQuantity(state, index) {
 			++state.cartList[index].quantity
 		},
-		decreaseQuantity(state, index){
+		decreaseQuantity(state, index) {
 			--state.cartList[index].quantity
 		}
 	},
@@ -26,20 +26,37 @@ export const store = new Vuex.Store({
 		changeNavigation(context, id) {
 			context.commit('changeNavigation', id)
 		},
-		addToCart({state, commit}, el) {
-			const cartItem = state.cartList.find(cartItem => cartItem.id === el.id)
-			const index = state.cartList.findIndex(cartItem => cartItem.id === el.id)
+		addToCart({ state, commit }, el) {
+			const cartItem = state.cartList.find(
+				cartItem => cartItem.id === el.id
+			)
+			const index = state.cartList.findIndex(
+				cartItem => cartItem.id === el.id
+			)
 
 			//increase quantity if the element already exists
-			cartItem ? commit('increaseQuantity', index) : commit('addToCart', el)
+			cartItem
+				? commit('increaseQuantity', index)
+				: commit('addToCart', el)
 		},
-		increaseQuantity({state, commit}, id){
-			const index = state.cartList.findIndex(cartItem => cartItem.id === id)
+		increaseQuantity({ state, commit }, id) {
+			const index = state.cartList.findIndex(
+				cartItem => cartItem.id === id
+			)
 			commit('increaseQuantity', index)
 		},
-		decreaseQuantity({state, commit}, id){
-			const index = state.cartList.findIndex(cartItem => cartItem.id === id)
+		decreaseQuantity({ state, commit }, id) {
+			const index = state.cartList.findIndex(
+				cartItem => cartItem.id === id
+			)
 			commit('decreaseQuantity', index)
+		}
+	},
+	getters: {
+		getCartTotal(state) {
+			return state.cartList.reduce((acc, item) => {
+				return acc + item.price * item.quantity
+			}, 0)
 		}
 	}
 })
