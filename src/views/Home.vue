@@ -1,11 +1,11 @@
 <template>
 	<div class="home">
-		<div class="cart-icon" v-if="isSmallDevice()">
-			<CartIcon/>
-		</div>
+		<router-link to="/cart" class="cart-icon" v-if="isSmallDevice()">
+			<CartIcon />
+		</router-link>
 		<NavigationBar />
 		<ItemsList />
-		<Cart v-if="isDesktop()"/>
+		<Cart v-if="isDesktop()" />
 	</div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
 		Cart,
 		CartIcon
 	},
-	mixins:[Mixin]
+	mixins: [Mixin]
 }
 </script>
 
@@ -33,17 +33,18 @@ export default {
 .home {
 	display: flex;
 
-	.cart-icon{
+	.cart-icon {
 		width: 42px;
 		height: 42px;
 		margin: 27px 22px 37px auto;
 		border-radius: 50%;
 		background-color: $pink;
 		color: white;
-		@include Flexbox(row, center,center);
+		@include Flexbox(row, center, center);
 	}
 
 	@media screen and(max-width: 720px) {
+		background-color: white;
 		flex-direction: column;
 	}
 }
