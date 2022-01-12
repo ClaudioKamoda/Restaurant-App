@@ -57,6 +57,7 @@ export default {
 	padding: 20px;
 	width: 100vw;
 	display: flex;
+	align-content: flex-start;
 	flex-wrap: wrap;
 	background-color: $bg-color;
 

@@ -4,8 +4,9 @@
 			←️ Voltar
 		</router-link>
 		<h2 class="cart--title">Seu pedido</h2>
+		<p class="cart--empty" v-if="isEmpty">Seu carrinho ainda está vazio</p>
 		<CartItem v-for="item in cartList" :key="item.id" :item="item" />
-		<div class="cart--total">
+		<div class="cart--total" v-if="!isEmpty">
 			<span>Total: </span>
 			<span class="cart--totalPrice">{{ getCartTotal | priceCalc }}</span>
 		</div>
@@ -33,6 +34,9 @@ export default {
 		...mapGetters(['getCartTotal']),
 		cartList() {
 			return this.$store.state.cartList
+		},
+		isEmpty() {
+			return this.$store.state.cartList.length === 0
 		}
 	},
 	mixins: [Mixin]
@@ -54,6 +58,10 @@ export default {
 	&--title,
 	&--goBack {
 		@include FontBase(600, 1.5rem, black);
+	}
+
+	&--empty {
+		padding-top: 10px;
 	}
 
 	&--total {

@@ -79,3 +79,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 -   Added routes to cart when in mobile.
 -   Fixed some responsivity issues.
 -   Added total price to cart.
+-   Small fixes: added empty cart message.
