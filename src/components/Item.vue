@@ -1,6 +1,11 @@
 <template>
 	<div class="item" @click="addToCart">
 		<div class="img-container">
+			<!--Don't remove this, otherwise the code will break-->
+			<p style="display: none">
+				{{ itemData.id }}
+			</p>
+
 			<img :src="imagePath" alt="imagem do produto" />
 			<div class="item--tag" v-if="itemData.offer">Oferta</div>
 		</div>

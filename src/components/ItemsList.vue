@@ -65,7 +65,7 @@ export default {
 		background-color: white;
 		padding: 23px;
 		flex-direction: column;
-		align-items: center;
+		align-content: center;
 		gap: 10px;
 	}
 }
