@@ -1,16 +1,6 @@
 <template>
 	<div class="item">
-		<div class="item--quantity">
-			<button
-				class="button"
-				@click="decreaseQuantity(item.id)"
-				:disabled="item.quantity == 0"
-			>
-				-
-			</button>
-			<span class="number">{{ item.quantity }}</span>
-			<button class="button" @click="increaseQuantity(item.id)">+</button>
-		</div>
+		<Quantity :item="item" class="item--quantity" />
 		<div class="img-container">
 			<img :src="imagePath" alt="imagem do produto" />
 		</div>
@@ -24,9 +14,13 @@
 
 <script>
 import { mapActions } from 'vuex'
+import Quantity from './Quantity.vue'
 
 export default {
 	name: 'CartItem',
+	components: {
+		Quantity
+	},
 	filters: {
 		priceCalc(value) {
 			return `R$ ${value.toLocaleString('pt-br', {
@@ -54,27 +48,6 @@ export default {
 	gap: 15px;
 	padding: 20px 0;
 	border-bottom: 1px solid $light-grey;
-
-	&--quantity {
-		@include Flexbox(row, center, center);
-
-		.number {
-			@include FontBase(500, 1.125rem, $yellow);
-			width: 28px;
-			text-align: center;
-		}
-
-		.button {
-			@include FontBase(600, 1.125rem, black);
-			cursor: pointer;
-			background: none;
-			border: 0;
-
-			&:focus {
-				outline: 0;
-			}
-		}
-	}
 
 	.img-container {
 		background-color: $light-yellow;

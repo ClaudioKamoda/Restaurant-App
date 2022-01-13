@@ -80,3 +80,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 -   Fixed some responsivity issues.
 -   Added total price to cart.
 -   Small fixes: added empty cart message.
+
+### January 13, 2022:
+
+-   Added new route on mobile.
+-   Transformed quantity add/remove in a component.
