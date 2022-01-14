@@ -19,3 +19,11 @@ input,
 textarea {
 	font-family: 'Poppins', sans-serif;
 }
+
+.primary-button {
+	background-color: $pink;
+	border: none;
+	@include FontBase(600, 1rem, white);
+	border-radius: 8px;
+	padding: 8px 35px;
+}
