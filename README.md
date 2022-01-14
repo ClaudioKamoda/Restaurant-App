@@ -89,5 +89,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### January 14, 2022:
 
--   Changed **_Quantity_** component to work inside **_addToCart_** component.
+-   Changed **_Quantity_** component to work inside **_AddToCart_** component.
 -   **_AddToCart_** completed.
+-   Installed **_feather-icons_**.
