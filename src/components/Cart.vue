@@ -5,7 +5,9 @@
 		</router-link>
 		<h2 class="cart--title">Seu pedido</h2>
 		<p class="cart--empty" v-if="isEmpty">Seu carrinho ainda está vazio</p>
-		<CartItem v-for="item in cartList" :key="item.id" :item="item" />
+		<transition-group name="list">
+			<CartItem v-for="item in cartList" :key="item.id" :item="item" />
+		</transition-group>
 		<div class="cart--total" v-if="!isEmpty">
 			<span>Total: </span>
 			<span class="cart--totalPrice">{{ getCartTotal | priceCalc }}</span>
@@ -47,7 +49,7 @@ export default {
 .cart {
 	background-color: white;
 	min-width: 600px;
-	padding: 50px;
+	padding: 50px 20px;
 
 	&--goBack {
 		display: block;
@@ -73,6 +75,16 @@ export default {
 	&--totalPrice {
 		padding-left: 10px;
 		color: $yellow;
+	}
+
+	.list-enter-active,
+	.list-leave-active {
+		transition: all 1s;
+	}
+	.list-enter,
+	.list-leave-to {
+		opacity: 0;
+		transform: translateX(-30deg);
 	}
 
 	@media screen and (max-width: 720px) {
