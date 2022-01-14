@@ -86,3 +86,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 -   Added new route on mobile.
 -   Transformed quantity add/remove in a component.
 -   Structured and styled ad to cart screen
+
+### January 14, 2022:
+
+-   changed **_Quantity_** component to work inside **_addToCart_** component

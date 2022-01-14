@@ -6,7 +6,7 @@
 		<Item :itemData="this.item" class="addToCart--item" />
 		<div class="addToCart--container">
 			<span>Quantidade:</span>
-			<Quantity :item="item" />
+			<Quantity :item="item" :useStore="false" />
 		</div>
 		<p class="addToCart--observations">Observações:</p>
 		<textarea v-model="observations" rows="10"></textarea>
@@ -42,7 +42,7 @@ export default {
 		axios
 			.get(`http://localhost:3000/${this.selectedNav}/${this.id}`)
 			.then(response => {
-				this.item = response.data
+				this.item = { quantity: 1, ...response.data }
 			})
 	}
 }

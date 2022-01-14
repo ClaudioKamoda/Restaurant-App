@@ -40,8 +40,10 @@ export default {
 	},
 	methods: {
 		addToCart() {
-			this.$store.dispatch('addToCart', this.itemData)
-			if (this.isDesktop()) return
+			if (this.isDesktop()) {
+				this.$store.dispatch('addToCart', this.itemData)
+				return
+			}
 
 			this.$router.push({
 				name: 'AddToCart',
