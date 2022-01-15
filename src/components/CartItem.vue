@@ -7,6 +7,7 @@
 		<div class="item--content">
 			<h3 class="name">{{ item.name }}</h3>
 			<a class="description">Adicionar observação</a>
+			<p class="description-text">{{item.observations}}</p>
 		</div>
 		<p class="item--price">{{ item.price | priceCalc }}</p>
 	</div>
@@ -69,6 +70,10 @@ export default {
 		}
 		.description {
 			text-decoration: underline;
+			@include FontBase(500, 0.75rem, $dark-grey);
+		}
+
+		.description-text{
 			@include FontBase(500, 0.75rem, $dark-grey);
 		}
 	}

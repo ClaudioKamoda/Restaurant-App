@@ -12,7 +12,6 @@
 			<span>Total: </span>
 			<span class="cart--totalPrice">{{ getCartTotal | priceCalc }}</span>
 		</div>
-		<Modal :show="showModal" @close-modal="showModal = false">teste</Modal>
 	</div>
 </template>
 
@@ -20,7 +19,6 @@
 import CartItem from './CartItem.vue'
 import Mixin from '@/mixin.js'
 import { mapGetters } from 'vuex'
-import Modal from './Modal.vue'
 
 export default {
 	name: 'Cart',
@@ -31,14 +29,8 @@ export default {
 			})}`
 		}
 	},
-	data(){
-		return{
-			showModal: false
-		}
-	},
 	components: {
 		CartItem,
-		Modal
 	},
 	computed: {
 		...mapGetters(['getCartTotal']),

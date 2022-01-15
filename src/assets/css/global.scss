@@ -20,10 +20,16 @@ textarea {
 	font-family: 'Poppins', sans-serif;
 }
 
-.primary-button {
+.primary-button, .secondary-button {
 	background-color: $pink;
 	border: none;
 	@include FontBase(600, 1rem, white);
 	border-radius: 8px;
 	padding: 8px 35px;
+}
+
+.secondary-button{
+	background-color: white;
+	border: 1px solid black;
+	color: black;
 }
