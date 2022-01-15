@@ -6,21 +6,36 @@
 		</div>
 		<div class="item--content">
 			<h3 class="name">{{ item.name }}</h3>
-			<a class="description">Adicionar observação</a>
+			<a class="description" @click="onShowObservationModal">Adicionar observação</a>
 			<p class="description-text">{{item.observations}}</p>
 		</div>
 		<p class="item--price">{{ item.price | priceCalc }}</p>
+		<Modal :show="showObservationModal" @close-modal="closeObservationModal">
+			<div class="modal-content">
+				<h2>Adicionar observação</h2>
+				<textarea v-model="item.observations" rows="5"></textarea>
+				<button class="primary-button" @click="saveObservation">Salvar</button>
+				<button class="secondary-button" @click="closeObservationModal">Cancelar</button>
+			</div>
+		</Modal>
 	</div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
 import Quantity from './Quantity.vue'
+import Modal from './Modal.vue'
 
 export default {
 	name: 'CartItem',
 	components: {
-		Quantity
+		Quantity,
+		Modal
+	},
+	data(){
+		return{
+			showObservationModal: false
+		}
 	},
 	filters: {
 		priceCalc(value) {
@@ -38,7 +53,17 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions(['increaseQuantity', 'decreaseQuantity'])
+		...mapActions(['increaseQuantity', 'decreaseQuantity']),
+		onShowObservationModal(){
+			this.showObservationModal = true
+		},
+		closeObservationModal(){
+			this.showObservationModal = false
+		},
+		saveObservation(){
+			this.$store.dispatch('addObservation', this.item)
+			this.showObservationModal = false
+		}
 	}
 }
 </script>
@@ -71,6 +96,7 @@ export default {
 		.description {
 			text-decoration: underline;
 			@include FontBase(500, 0.75rem, $dark-grey);
+			cursor: pointer;
 		}
 
 		.description-text{
@@ -80,6 +106,23 @@ export default {
 
 	&--price {
 		@include FontBase(600, 1.125rem, $yellow);
+	}
+
+	.modal-content{
+		text-align: center;
+
+		h2{
+			font-size: 1.125rem;
+			margin-bottom:5px;
+		}
+
+		textarea{
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		button + button{
+			margin: 10px;
+		}
 	}
 
 	@media screen and (max-width: 720px) {
@@ -99,6 +142,12 @@ export default {
 		}
 		&--price {
 			order: 4;
+		}
+
+		.modal-content{
+			textarea{
+				margin-bottom: 5px;
+			}
 		}
 	}
 }

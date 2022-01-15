@@ -43,7 +43,7 @@ export default{
   &--content{
     background: white;
     border-radius: 8px;
-    width: 600px;
+    width: 50%;
     padding: 30px;
     position: absolute;
     top: 50%;
@@ -53,6 +53,13 @@ export default{
 
   &--close{
     text-align: right;
+  }
+
+  @media screen and (max-width:720px){
+    &--content{
+      width:90%;
+      padding: 15px;
+    }
   }
 }
 </style>
