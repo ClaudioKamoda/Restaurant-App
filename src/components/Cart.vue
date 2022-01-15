@@ -12,7 +12,7 @@
 			<span>Total: </span>
 			<span class="cart--totalPrice">{{ getCartTotal | priceCalc }}</span>
 		</div>
-		<div v-html="circleSVG()"></div>
+		<Modal :show="showModal" @close-modal="showModal = false">teste</Modal>
 	</div>
 </template>
 
@@ -20,7 +20,7 @@
 import CartItem from './CartItem.vue'
 import Mixin from '@/mixin.js'
 import { mapGetters } from 'vuex'
-import feather from 'feather-icons'
+import Modal from './Modal.vue'
 
 export default {
 	name: 'Cart',
@@ -31,8 +31,14 @@ export default {
 			})}`
 		}
 	},
+	data(){
+		return{
+			showModal: false
+		}
+	},
 	components: {
-		CartItem
+		CartItem,
+		Modal
 	},
 	computed: {
 		...mapGetters(['getCartTotal']),
@@ -41,9 +47,6 @@ export default {
 		},
 		isEmpty() {
 			return this.$store.state.cartList.length === 0
-		},
-		circleSVG() {
-			return feather.icons.circle.toSvg()
 		}
 	},
 	mixins: [Mixin]

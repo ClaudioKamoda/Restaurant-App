@@ -92,3 +92,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 -   Changed **_Quantity_** component to work inside **_AddToCart_** component.
 -   **_AddToCart_** completed.
 -   Installed **_feather-icons_**.
+
+### January 15, 2022:
+
+- Added a modal to confirm deletion to cart.
