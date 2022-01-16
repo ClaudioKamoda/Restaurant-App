@@ -95,5 +95,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### January 15, 2022:
 
-- Added a modal to confirm deletion to cart.
-- Implemented adding observations via mobile and desktop.
+-   Added a modal to confirm deletion to cart.
+-   Implemented adding observations via mobile and desktop.
+-   Started with **_Payment_** view.

@@ -4,14 +4,25 @@
 			←️ Voltar
 		</router-link>
 		<h2 class="cart--title">Seu pedido</h2>
-		<p class="cart--empty" v-if="isEmpty">Seu carrinho ainda está vazio</p>
-		<transition-group name="list">
-			<CartItem v-for="item in cartList" :key="item.id" :item="item" />
-		</transition-group>
+		<div class="cart--content">
+			<p class="cart--empty" v-if="isEmpty">
+				Seu carrinho ainda está vazio
+			</p>
+			<transition-group name="list">
+				<CartItem
+					v-for="item in cartList"
+					:key="item.id"
+					:item="item"
+				/>
+			</transition-group>
+		</div>
 		<div class="cart--total" v-if="!isEmpty">
 			<span>Total: </span>
 			<span class="cart--totalPrice">{{ getCartTotal | priceCalc }}</span>
 		</div>
+		<button class="primary-button payment-button" @click="goToPayment">
+			Finalizar compra
+		</button>
 	</div>
 </template>
 
@@ -30,7 +41,7 @@ export default {
 		}
 	},
 	components: {
-		CartItem,
+		CartItem
 	},
 	computed: {
 		...mapGetters(['getCartTotal']),
@@ -41,7 +52,12 @@ export default {
 			return this.$store.state.cartList.length === 0
 		}
 	},
-	mixins: [Mixin]
+	mixins: [Mixin],
+	methods: {
+		goToPayment() {
+			this.$router.push({ name: 'Payment' })
+		}
+	}
 }
 </script>
 
@@ -49,7 +65,9 @@ export default {
 .cart {
 	background-color: white;
 	min-width: 600px;
-	padding: 50px 20px;
+	height: 100vh;
+	padding: 50px 20px 20px;
+	@include Flexbox(column, center, flex-start);
 
 	&--goBack {
 		display: block;
@@ -62,13 +80,19 @@ export default {
 		@include FontBase(600, 1.5rem, black);
 	}
 
+	&--content {
+		flex-grow: 1;
+		overflow: auto;
+		width: 100%;
+	}
+
 	&--empty {
 		padding-top: 10px;
 	}
 
 	&--total {
 		padding-top: 10px;
-		text-align: right;
+		align-self: flex-end;
 		@include FontBase(600, 1.125rem, black);
 	}
 
@@ -87,9 +111,18 @@ export default {
 		transform: translateX(-30deg);
 	}
 
+	.payment-button {
+		width: 80%;
+		margin: 20px auto 0;
+	}
+
 	@media screen and (max-width: 720px) {
 		min-width: unset;
 		width: 100vw;
+
+		.payment-button {
+			width: 100%;
+		}
 	}
 }
 </style>
