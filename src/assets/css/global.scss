@@ -20,7 +20,8 @@ textarea {
 	font-family: 'Poppins', sans-serif;
 }
 
-.primary-button, .secondary-button {
+.primary-button,
+.secondary-button {
 	background-color: $pink;
 	border: none;
 	@include FontBase(600, 1rem, white);
@@ -28,12 +29,32 @@ textarea {
 	padding: 8px 35px;
 }
 
-.secondary-button{
+.secondary-button {
 	background-color: white;
 	border: 1px solid black;
 	color: black;
 }
 
-textarea{
+input {
+	height: 47px;
+	padding: 0 10px;
+	border-radius: 8px;
+	border: 1px solid $dark-grey;
+	color: $dark-grey;
+
+	&.error {
+		border-color: $pink;
+
+		&::placeholder {
+			color: $pink;
+		}
+	}
+}
+
+.asterisk {
+	color: $pink;
+}
+
+textarea {
 	padding: 5px;
 }

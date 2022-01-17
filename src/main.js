@@ -5,7 +5,9 @@ import router from './router'
 import './assets/css/global.scss'
 import 'es6-promise/auto'
 import { store } from './store/store'
+import VueMask from 'v-mask'
 
+Vue.use(VueMask)
 Vue.use(Vuex)
 
 Vue.config.productionTip = false
