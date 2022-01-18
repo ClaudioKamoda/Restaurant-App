@@ -103,3 +103,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 -   Added client data section to payment view.
 -   Added address section to payment view.
+
+### January 18, 2022:
+
+-   Created a modal to add a new address to the application.
