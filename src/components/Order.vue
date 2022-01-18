@@ -46,16 +46,25 @@
 							type="radio"
 							name="delivery-type"
 							id="store"
-							checked
+							value="store"
+							v-model="deliveryType"
 						/>
 						<label for="store">Retirar na loja</label>
 					</div>
 					<div class="radio-option">
-						<input type="radio" name="delivery-type" id="entrega" />
+						<input
+							type="radio"
+							name="delivery-type"
+							id="entrega"
+							value="delivery"
+							v-model="deliveryType"
+						/>
 						<label for="entrega">Delivery</label>
 					</div>
 				</div>
-				<a @click="showAddressModal">Adicionar endereço</a>
+				<a @click="showAddressModal" v-if="isDelivery"
+					>{{ addressButtonLabel }} endereço</a
+				>
 			</div>
 		</form>
 		<button class="primary-button" @click="orderItems">
@@ -64,7 +73,7 @@
 		<p class="obs">* campo obrigatório</p>
 		<Modal :show="addressModal" @close-modal="hideAddressModal">
 			<div class="modal-content">
-				<h2>Adicionar endereço</h2>
+				<h2>{{ addressButtonLabel }} endereço</h2>
 				<form>
 					<div class="input-field">
 						<label for=""
@@ -128,7 +137,9 @@
 					<button class="secondary-button" @click="hideAddressModal">
 						Cancelar
 					</button>
-					<button class="primary-button">Adicionar</button>
+					<button class="primary-button" @click="validateAndClose">
+						{{ addressButtonLabel }}
+					</button>
 				</div>
 			</div>
 		</Modal>
@@ -146,6 +157,7 @@ export default {
 	data() {
 		return {
 			addressModal: false,
+			deliveryType: 'store',
 			formData: {
 				name: {
 					value: '',
@@ -188,7 +200,7 @@ export default {
 					valid: true,
 					isValid: () => {
 						this.formData.city.valid =
-							this.formData.city.value.length
+							!!this.formData.city.value.length
 					}
 				},
 				address: {
@@ -199,7 +211,7 @@ export default {
 					valid: true,
 					isValid: () => {
 						this.formData.address.valid =
-							this.formData.address.value.length
+							!!this.formData.address.value.length
 					}
 				},
 				complement: {
@@ -215,6 +227,21 @@ export default {
 			}
 		}
 	},
+	computed: {
+		isDelivery() {
+			return this.deliveryType === 'delivery'
+		},
+		addressExists() {
+			return (
+				this.formData.cep.value ||
+				this.formData.city.value ||
+				this.formData.address.value
+			)
+		},
+		addressButtonLabel() {
+			return this.addressExists ? 'Editar' : 'Adicionar'
+		}
+	},
 	methods: {
 		triggerValidations() {
 			this.formData.name.isValid()
@@ -227,6 +254,22 @@ export default {
 		},
 		showAddressModal() {
 			this.addressModal = true
+		},
+		validateAddress() {
+			this.formData.cep.isValid()
+			this.formData.city.isValid()
+			this.formData.address.isValid()
+			this.formData.complement.isValid()
+		},
+		validateAndClose() {
+			this.validateAddress()
+			if (
+				this.formData.cep.valid &&
+				this.formData.city.valid &&
+				this.formData.address.valid &&
+				this.formData.complement.valid
+			)
+				this.addressModal = false
 		}
 	}
 }

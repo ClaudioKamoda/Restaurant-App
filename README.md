@@ -107,3 +107,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 18, 2022:
 
 -   Created a modal to add a new address to the application.
+-   Verified validation to modal data.
