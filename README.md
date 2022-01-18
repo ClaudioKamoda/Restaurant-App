@@ -102,3 +102,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 17, 2022:
 
 -   Added client data section to payment view.
+-   Added address section to payment view.
