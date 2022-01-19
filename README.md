@@ -108,3 +108,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 -   Created a modal to add a new address to the application.
 -   Verified validation to modal data.
+
+### January 19, 2022:
+
+-   Created a card to show address if exists.

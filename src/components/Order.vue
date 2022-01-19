@@ -62,6 +62,14 @@
 						<label for="entrega">Delivery</label>
 					</div>
 				</div>
+				<div
+					class="address-card"
+					v-if="isDelivery && addressExists && savedAddress"
+				>
+					<p>{{ formData.address.value }}</p>
+					<p v-if="hasComplement">{{ formData.complement.value }}</p>
+					<p>{{ formData.city.value }}, {{ formData.cep.value }}</p>
+				</div>
 				<a @click="showAddressModal" v-if="isDelivery"
 					>{{ addressButtonLabel }} endereço</a
 				>
@@ -158,6 +166,7 @@ export default {
 		return {
 			addressModal: false,
 			deliveryType: 'store',
+			savedAddress: false,
 			formData: {
 				name: {
 					value: '',
@@ -240,6 +249,9 @@ export default {
 		},
 		addressButtonLabel() {
 			return this.addressExists ? 'Editar' : 'Adicionar'
+		},
+		hasComplement() {
+			return this.formData.complement.value != ''
 		}
 	},
 	methods: {
@@ -268,8 +280,10 @@ export default {
 				this.formData.city.valid &&
 				this.formData.address.valid &&
 				this.formData.complement.valid
-			)
+			) {
+				this.savedAddress = true
 				this.addressModal = false
+			}
 		}
 	}
 }
@@ -317,6 +331,16 @@ export default {
 				@include FontBase(400, 0.75rem, $pink);
 				text-decoration: underline;
 				cursor: pointer;
+			}
+
+			.address-card {
+				border: 1px solid $dark-grey;
+				border-radius: 8px;
+				padding: 15px;
+				margin: 15px 0;
+				@include Flexbox(column, flex-start, flex-start);
+				@include FontBase(400, 1rem, $dark-grey);
+				gap: 5px;
 			}
 		}
 
