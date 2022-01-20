@@ -392,8 +392,12 @@ export default {
 
 	.button-container {
 		@include Flexbox(row, center, center);
-		gap: 20px;
+		gap: 10px;
 		margin-top: 10px;
+	}
+
+	@media screen and (max-width: 720px){
+		padding: 15px;
 	}
 }
 </style>

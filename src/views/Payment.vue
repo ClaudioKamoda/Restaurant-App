@@ -38,5 +38,11 @@ export default {
 			text-decoration: none;
 		}
 	}
+
+	@media screen and (max-width:720px){
+		&--content{
+			padding: 50px 20px 10px;
+		}
+	}
 }
 </style>
