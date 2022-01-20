@@ -112,3 +112,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 19, 2022:
 
 -   Created a card to show address if exists.
+
+### January 20, 2022:
+
+- Added last div to inform payment type.
