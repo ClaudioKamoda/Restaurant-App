@@ -20,7 +20,11 @@
 			<span>Total: </span>
 			<span class="cart--totalPrice">{{ getCartTotal | priceCalc }}</span>
 		</div>
-		<button class="primary-button payment-button" @click="goToPayment">
+		<button
+			class="primary-button payment-button"
+			@click="goToPayment"
+			v-if="cartHasItem"
+		>
 			Finalizar compra
 		</button>
 	</div>
@@ -50,6 +54,9 @@ export default {
 		},
 		isEmpty() {
 			return this.$store.state.cartList.length === 0
+		},
+		cartHasItem() {
+			return this.cartList.length > 0
 		}
 	},
 	mixins: [Mixin],
