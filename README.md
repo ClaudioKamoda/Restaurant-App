@@ -115,5 +115,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### January 20, 2022:
 
-- Added last div to inform payment type.
-- Fixed responsivity in payment view.
+-   Added last div to inform payment type.
+-   Fixed responsivity in payment view.
+
+### January 21, 2022:
+
+-   Added final validations.

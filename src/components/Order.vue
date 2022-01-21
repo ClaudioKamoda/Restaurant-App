@@ -177,6 +177,12 @@
 				</div>
 			</div>
 		</Modal>
+		<Modal :show="noAddressWarning" @close-modal="hideNoAddressWarning"
+			>Você esqueceu de adicionar um endereço para a entrega!</Modal
+		>
+		<Modal :show="successModal" @close-modal="hideSuccessModal"
+			>Pedido confirmado</Modal
+		>
 	</div>
 </template>
 
@@ -191,6 +197,8 @@ export default {
 	data() {
 		return {
 			addressModal: false,
+			noAddressWarning: false,
+			successModal: false,
 			deliveryType: 'store',
 			paymentType: 'card',
 			savedAddress: false,
@@ -274,6 +282,17 @@ export default {
 				this.formData.address.value
 			)
 		},
+		addressIsValid() {
+			return (
+				this.formData.cep.valid &&
+				this.formData.city.valid &&
+				this.formData.address.valid &&
+				this.formData.complement.valid
+			)
+		},
+		userInfoIsValid() {
+			return this.formData.name.valid && this.formData.cellphone.valid
+		},
 		addressButtonLabel() {
 			return this.addressExists ? 'Editar' : 'Adicionar'
 		},
@@ -284,9 +303,22 @@ export default {
 	methods: {
 		triggerValidations() {
 			this.formData.name.isValid()
+			this.formData.cellphone.isValid()
+			if (this.isDelivery) {
+				this.validateAddress()
+				this.noAddressWarning = !this.addressExists
+			}
 		},
 		orderItems() {
 			this.triggerValidations()
+			if (!this.addressIsValid || !this.userInfoIsValid) return
+			this.successModal = true
+		},
+		hideSuccessModal() {
+			this.$router.push({ name: 'Home' })
+		},
+		hideNoAddressWarning() {
+			this.noAddressWarning = false
 		},
 		hideAddressModal() {
 			this.addressModal = false
@@ -302,12 +334,7 @@ export default {
 		},
 		validateAndClose() {
 			this.validateAddress()
-			if (
-				this.formData.cep.valid &&
-				this.formData.city.valid &&
-				this.formData.address.valid &&
-				this.formData.complement.valid
-			) {
+			if (this.addressIsValid) {
 				this.savedAddress = true
 				this.addressModal = false
 			}
@@ -355,7 +382,6 @@ export default {
 		}
 
 		.address {
-
 			a {
 				@include FontBase(400, 0.75rem, $pink);
 				text-decoration: underline;
@@ -396,7 +422,7 @@ export default {
 		margin-top: 10px;
 	}
 
-	@media screen and (max-width: 720px){
+	@media screen and (max-width: 720px) {
 		padding: 15px;
 	}
 }
