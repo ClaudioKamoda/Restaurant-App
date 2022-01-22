@@ -33,16 +33,16 @@ export default {
 	data() {
 		return {
 			navigationList: [
-				{ label: 'Pizza', id: 'pizzas', component:'pizzaIcon' },
-				{ label: 'Bebidas', id: 'drinks', component:'drinksIcon' },
-				{ label: 'Doces', id: 'desserts', component:'desertIcon' },
-				{ label: 'Combos', id: 'combos', component:'comboIcon' },
-				{ label: 'Burguer', id: 'burguers', component:'burguerIcon' }
+				{ label: 'Pizza', id: 'pizzas', component: 'pizzaIcon' },
+				{ label: 'Bebidas', id: 'drinks', component: 'drinksIcon' },
+				{ label: 'Doces', id: 'desserts', component: 'desertIcon' },
+				{ label: 'Combos', id: 'combos', component: 'comboIcon' },
+				{ label: 'Burguer', id: 'burguers', component: 'burguerIcon' }
 			],
 			currentNavigation: ''
 		}
 	},
-	mounted(){
+	mounted() {
 		this.changeNavigation('pizzas')
 	},
 	methods: {
@@ -106,7 +106,7 @@ export default {
 			}
 		}
 	}
-	@media screen and (max-width: 720px) {
+	@media screen and (max-width: 1170px) {
 		width: 100%;
 		height: fit-content;
 

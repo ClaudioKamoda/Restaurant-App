@@ -61,7 +61,11 @@ export default {
 	flex-wrap: wrap;
 	background-color: $bg-color;
 
-	@media screen and (max-width: 720px) {
+	@media screen and (max-width: 1170px) {
+		justify-content: center;
+	}
+
+	@media screen and (max-width: 540px) {
 		background-color: white;
 		padding: 23px;
 		flex-direction: column;

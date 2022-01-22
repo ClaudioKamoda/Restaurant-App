@@ -121,3 +121,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### January 21, 2022:
 
 -   Added final validations.
+
+### January 22, 2022:
+
+-   Responsivity changes.

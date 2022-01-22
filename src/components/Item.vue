@@ -100,7 +100,7 @@ export default {
 		@include FontBase(600, 1.125rem, $yellow);
 	}
 
-	@media screen and (max-width: 720px) {
+	@media screen and (max-width: 540px) {
 		border: solid $light-grey 1.5px;
 		height: fit-content;
 		min-width: 330px;

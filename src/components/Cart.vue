@@ -71,7 +71,7 @@ export default {
 <style lang="scss" scoped>
 .cart {
 	background-color: white;
-	min-width: 600px;
+	min-width: 500px;
 	height: 100vh;
 	padding: 50px 20px 20px;
 	@include Flexbox(column, center, flex-start);
