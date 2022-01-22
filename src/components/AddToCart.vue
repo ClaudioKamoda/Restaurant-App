@@ -1,8 +1,6 @@
 <template>
 	<div class="addToCart">
-		<router-link to="/" class="addToCart--goBack" v-if="isSmallDevice()">
-			←️ Voltar
-		</router-link>
+		<router-link to="/" class="addToCart--goBack"> ←️ Voltar </router-link>
 		<Item :itemData="this.item" class="addToCart--item" />
 		<div class="addToCart--container">
 			<span>Quantidade:</span>
@@ -41,6 +39,7 @@ export default {
 		}
 	},
 	created() {
+		if (this.isDesktop()) this.$router.push('/')
 		axios
 			.get(`http://localhost:3000/${this.selectedNav}/${this.id}`)
 			.then(response => {
@@ -68,7 +67,7 @@ export default {
 	}
 
 	&--item {
-		margin-top: 50px;
+		margin-top: 20px;
 	}
 
 	&--container {
@@ -91,16 +90,15 @@ export default {
 
 	textarea {
 		width: 100%;
-		height: 100px;
+		height: 80px;
 		border: 1px solid $light-grey;
 		border-radius: 8px;
 	}
 
 	button {
+		display: block;
 		width: calc(100% - 40px);
-		position: fixed;
-		bottom: 30px;
-		left: 20px;
+		margin: 20px auto;
 	}
 }
 </style>

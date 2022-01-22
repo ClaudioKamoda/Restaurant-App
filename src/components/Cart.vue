@@ -1,8 +1,6 @@
 <template>
 	<div class="cart">
-		<router-link to="/" class="cart--goBack" v-if="isSmallDevice()">
-			←️ Voltar
-		</router-link>
+		<router-link to="/" class="cart--goBack"> ←️ Voltar </router-link>
 		<h2 class="cart--title">Seu pedido</h2>
 		<div class="cart--content">
 			<p class="cart--empty" v-if="isEmpty">
@@ -23,7 +21,7 @@
 		<button
 			class="primary-button payment-button"
 			@click="goToPayment"
-			v-if="cartHasItem"
+			v-if="cartHasItem && !isPaymentScreen"
 		>
 			Finalizar compra
 		</button>
@@ -57,6 +55,9 @@ export default {
 		},
 		cartHasItem() {
 			return this.cartList.length > 0
+		},
+		isPaymentScreen() {
+			return this.$route.name === 'Payment'
 		}
 	},
 	mixins: [Mixin],
@@ -80,6 +81,8 @@ export default {
 		display: block;
 		margin-bottom: 25px;
 		text-decoration: none;
+
+		display: none;
 	}
 
 	&--title,
@@ -121,6 +124,14 @@ export default {
 	.payment-button {
 		width: 80%;
 		margin: 20px auto 0;
+	}
+
+	@media screen and (max-width: 1170px) {
+		&--goBack {
+			display: block;
+			margin-bottom: 25px;
+			text-decoration: none;
+		}
 	}
 
 	@media screen and (max-width: 720px) {

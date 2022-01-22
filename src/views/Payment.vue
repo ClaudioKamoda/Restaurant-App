@@ -4,7 +4,7 @@
 			<router-link to="/" class="goBack"> ←️ Voltar </router-link>
 			<Order />
 		</div>
-		<Cart v-if="isDesktop()" />
+		<Cart class="cart-menu" />
 	</div>
 </template>
 
@@ -39,8 +39,18 @@ export default {
 		}
 	}
 
-	@media screen and (max-width:720px){
-		&--content{
+	.cart-menu {
+		display: block;
+	}
+
+	@media screen and (max-width: 1170px) {
+		.cart-menu {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 720px) {
+		&--content {
 			padding: 50px 20px 10px;
 		}
 	}

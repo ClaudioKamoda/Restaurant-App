@@ -1,12 +1,12 @@
-export default{
-  methods:{
-    isDesktop(){
+export default {
+	methods: {
+		isDesktop() {
 			const width = window.innerWidth
-			return width > 720
+			return width > 1170
 		},
-    isSmallDevice(){
-      const width = window.innerWidth
+		isSmallDevice() {
+			const width = window.innerWidth
 			return width < 720
-    }
-  }
+		}
+	}
 }

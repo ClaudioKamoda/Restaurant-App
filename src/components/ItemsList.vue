@@ -70,6 +70,7 @@ export default {
 		padding: 23px;
 		flex-direction: column;
 		align-content: center;
+		justify-content: flex-start;
 		gap: 10px;
 	}
 }
