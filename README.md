@@ -5,7 +5,7 @@ Final project from the front-end dev course I took made by @IsadoraStangarlin.
 
 ![Application in action](https://github.com/ClaudioKamoda/Restaurant-App/blob/main/src/assets/example.gif)
 
-<img src="https://github.com/ClaudioKamoda/Restaurant-App/blob/main/src/assets/mobile.gif" alt="Application in action mobile version" height="200"/>
+<img src="https://github.com/ClaudioKamoda/Restaurant-App/blob/main/src/assets/mobile.gif" alt="Application in action mobile version" height="400"/>
 
 ## Project setup
 
