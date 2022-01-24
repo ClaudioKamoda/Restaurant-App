@@ -3,7 +3,7 @@
 Resturant app developed using Vue.js, Sass, axios and json server.
 Final project from the front-end dev course I took made by @IsadoraStangarlin.
 
-![Application in action]("https://github.com/ClaudioKamoda/Restaurant-App/blob/main/src/assets/example.gif")
+![Application in action](https://github.com/ClaudioKamoda/Restaurant-App/blob/main/src/assets/example.gif)
 
 ## Project setup
 
